@@ -24,6 +24,9 @@ public class CatController {
         return new ResponseEntity<>(catService.getAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/getById/{id}")
+    public ResponseEntity<Cat> getById(@PathVariable long id){return new ResponseEntity<>(catService.getById(id), HttpStatus.OK);}
+
     @GetMapping("/getByName/{name}")
     public ResponseEntity<List<Cat>> getByName(@PathVariable String name){
         return new ResponseEntity<>(catService.getByName(name), HttpStatus.OK);
@@ -68,5 +71,10 @@ public class CatController {
         headers.setContentDisposition(ContentDisposition.inline().filename("catInfo.pdf").build());
 
         return new ResponseEntity<>(pdf, headers, HttpStatus.OK);
+    }
+
+    @GetMapping("/updateCat/{id}")
+    public ResponseEntity<Cat> updateCat(@PathVariable long id){
+        return new ResponseEntity<>(catService.updateCat(id), HttpStatus.OK);
     }
 }

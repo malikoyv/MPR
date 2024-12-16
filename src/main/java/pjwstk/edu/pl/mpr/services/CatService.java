@@ -112,12 +112,15 @@ public class CatService {
         return cat.get();
     }
 
-    public void updateCat(Cat cat){
-        if (cat.getId() != null) {
-            catRepository.save(cat);
+    public Cat updateCat(Long id){
+        Optional<Cat> cat = catRepository.findById(id);
+        if (cat.get().getId() != null) {
+            catRepository.save(cat.get());
         } else {
             throw new IllegalArgumentException("Cat ID is required for updating a record.");
         }
+
+        return cat.get();
     }
 
     public Cat addCatWithUpperName(String name, int age){
