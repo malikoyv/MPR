@@ -24,7 +24,6 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	runtimeOnly 'com.h2database:h2'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
-	implementation group: 'org.springframework', name: 'spring-webmvc', version: '6.2.1'
 	implementation group: 'org.apache.pdfbox', name: 'pdfbox', version: '3.0.3'
 }
 
